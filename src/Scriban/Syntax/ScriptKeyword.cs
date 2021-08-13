@@ -44,6 +44,8 @@ namespace Scriban.Syntax
 
         public static ScriptKeyword Ret() => new ScriptKeyword("ret");
 
+        public static ScriptKeyword Return() => new ScriptKeyword("return");
+
         public static ScriptKeyword TableRow() => new ScriptKeyword("tablerow");
 
         public static ScriptKeyword When() => new ScriptKeyword("when");
