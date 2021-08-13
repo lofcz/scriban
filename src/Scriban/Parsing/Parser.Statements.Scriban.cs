@@ -173,6 +173,10 @@ namespace Scriban.Parsing
                     CheckNotInCase(parent, startToken);
                     statement = ParseReturnStatement();
                     break;
+                case "return":
+                    CheckNotInCase(parent, startToken);
+                    statement = ParseReturnStatement2();
+                    break;
                 case "capture":
                     CheckNotInCase(parent, startToken);
                     statement = ParseCaptureStatement();
@@ -375,6 +379,20 @@ namespace Scriban.Parsing
             return Close(ret);
         }
 
+        private ScriptReturnStatement2 ParseReturnStatement2()
+        {
+            var ret = Open<ScriptReturnStatement2>();
+            ExpectAndParseKeywordTo(ret.RetKeyword); // Parse ret keyword
+
+            if (IsStartOfExpression())
+            {
+                ret.Expression = ParseExpression(ret);
+            }
+            ExpectEndOfStatement();
+
+            return Close(ret);
+        }
+
         private ScriptWhileStatement ParseWhileStatement()
         {
             var whileStatement = Open<ScriptWhileStatement>();
@@ -452,6 +470,7 @@ namespace Scriban.Parsing
                 case "with":
                 case "capture":
                 case "ret":
+                case "return":
                 case "wrap":
                 case "do":
                     return true;

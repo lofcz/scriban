@@ -1,6 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="Scriban.props" />
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="ScribanLof.props" />
   <PropertyGroup>
-    <PackageId>Scriban</PackageId>
+    <PackageId>ScribanLof</PackageId>
+    <Version>4.0.2</Version>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="Syntax\Statements\ScriptReturnStatement2.cs" />
+  </ItemGroup>
 </Project>
