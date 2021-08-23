@@ -2,7 +2,7 @@
   <Import Project="ScribanLof.props" />
   <PropertyGroup>
     <PackageId>ScribanLof</PackageId>
-    <Version>4.0.2</Version>
+    <Version>4.0.4</Version>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Syntax\Statements\ScriptReturnStatement2.cs" />
