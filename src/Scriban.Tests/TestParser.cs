@@ -658,11 +658,11 @@ Hello
             AssertTemplate(output, input);
         }
 
-        [TestCaseSource("ListBuiltinFunctionTests", new object[] { "object" })]
+       /* [TestCaseSource("ListBuiltinFunctionTests", new object[] { "object" })]
         public static void Doc_object(string inputName, string input, string output)
         {
             AssertTemplate(output, input);
-        }
+        }*/
 
         [TestCaseSource("ListBuiltinFunctionTests", new object[] { "regex" })]
         public static void Doc_regex(string inputName, string input, string output)
