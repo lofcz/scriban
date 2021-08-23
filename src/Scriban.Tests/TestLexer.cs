@@ -552,6 +552,7 @@ namespace Scriban.Tests
                 {"&", TokenType.Amp},
                 {"&&", TokenType.DoubleAmp},
                 {"??", TokenType.DoubleQuestion},
+                {"??=", TokenType.DoubleQuestionAssignment},
                 {"?!", TokenType.QuestionExclamation},
                 {"||", TokenType.DoubleVerticalBar},
                 {"..", TokenType.DoubleDot},

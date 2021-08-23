@@ -22,6 +22,11 @@ namespace Scriban.Syntax
         EmptyCoalescing,
 
         /// <summary>
+        /// The empty coalescing assignment operator ??=
+        /// </summary>
+        EmptyCoalescingAssignment,
+
+        /// <summary>
         /// The not empty coalescing operator ?!
         /// </summary>
         NotEmptyCoalescing,
@@ -127,6 +132,8 @@ namespace Scriban.Syntax
                     return TokenType.DoubleVerticalBar;
                 case ScriptBinaryOperator.EmptyCoalescing:
                     return TokenType.DoubleQuestion;
+                case ScriptBinaryOperator.EmptyCoalescingAssignment:
+                    return TokenType.DoubleQuestionAssignment;
                 case ScriptBinaryOperator.NotEmptyCoalescing:
                     return TokenType.QuestionExclamation;
                 case ScriptBinaryOperator.ShiftLeft:
