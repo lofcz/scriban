@@ -496,6 +496,11 @@ namespace Scriban
                 return value;
             }
 
+            if (destinationType == typeof(object[]))
+            {
+                return new object[] { value };
+            }
+
             throw new ScriptRuntimeException(span, $"Unable to convert type `{GetTypeName(value)}` to `{GetTypeName(destinationType)}`");
         }
 

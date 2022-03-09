@@ -19,9 +19,46 @@ using Scriban.Syntax;
 
 namespace Scriban.Tests
 {
+    delegate string Args(params object[] superArgumenty);
+
+    public class Cls2
+    {
+        public string a = "hi";
+    }
+
+
     [TestFixture]
     public class TestRuntime
     {
+
+        [Test]
+        public void TestPars()
+        {
+            string Dump(params object[] superArgumenty)
+            {
+                return "ahoj";
+            }
+
+            ScriptObject model = new ScriptObject();
+
+            ScriptObject debug = new ScriptObject();
+            Args dump = Dump;
+
+            debug.Import("dump", dump);
+
+            model["debug"] = debug;
+            model["native"] = new Cls2();
+
+
+            var input = "{{debug.dump(native, native)}}";
+
+            var template = Template.Parse(input);
+            var result = template.Render(model);
+
+            Assert.AreEqual("ahoj", result);
+        }
+
+
         [Test]
         public void TestUlong()
         {
